@@ -88,6 +88,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MONKEY"/>
             </intent-filter>
         </activity>
@@ -111,7 +112,7 @@
             </intent-filter>
         </activity>
 
-        -->
+
 
         <activity
             android:name="com.android.launcher3.ToggleWeightWatcher"
@@ -124,7 +125,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+-->
         <activity
             android:name="com.android.launcher3.WallpaperPickerActivity"
             android:theme="@style/Theme.WallpaperPicker"
@@ -159,7 +160,7 @@
             android:process=":settings_process">
         </activity>
 
-        <!-- Debugging tools -->
+        <!-- Debugging tools
         <activity
             android:name="com.android.launcher3.MemoryDumpActivity"
             android:theme="@android:style/Theme.NoDisplay"
@@ -174,7 +175,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+-->
         <service android:name="com.android.launcher3.MemoryTracker"
             android:enabled="@bool/debug_memory_enabled"
             >
