@@ -522,6 +522,9 @@ public class Launcher extends Activity
             showFirstRunActivity();
             showFirstRunClings();
         }
+
+        //注册未读短信数据库监听者
+        new UnreadContentObserver(this).getUnreadMms();
     }
 
     @Override
