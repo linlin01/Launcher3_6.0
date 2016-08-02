@@ -44,6 +44,7 @@ import java.util.HashSet;
  */
 public class DragController {
     private static final String TAG = "Launcher.DragController";
+    private static final String TAGdrag = "zhao11drag.Launcher.DragController";
 
     /** Indicates the drag is a move.  */
     public static int DRAG_ACTION_MOVE = 0;
@@ -213,6 +214,7 @@ public class DragController {
     public DragView startDrag(Bitmap b, int dragLayerX, int dragLayerY,
             DragSource source, Object dragInfo, int dragAction, Point dragOffset, Rect dragRegion,
             float initialDragViewScale, boolean accessible) {
+        Log.i(TAGdrag,"startDrag");
         if (PROFILE_DRAWING_DURING_DRAG) {
             android.os.Debug.startMethodTracing("Launcher");
         }
@@ -504,6 +506,17 @@ public class DragController {
     }
 
     private void handleMoveEvent(int x, int y) {
+        /**
+         * 开始拖拽的过程时候会不停的调用此方法，
+         * Launcher: onLongClick
+         * Launcher.Workspace: startDrag
+         * Launcher.Workspace: beginDragShared
+         * Launcher.DragController: startDrag
+         * Launcher.Workspace: onDragStart
+         * Launcher.DragController: handleMoveEvent
+         * Launcher.DragController: handleMoveEvent
+         */
+        Log.i(TAGdrag,"handleMoveEvent");
         mDragObject.dragView.move(x, y);
 
         // Drop on someone?

@@ -133,6 +133,7 @@ public class Launcher extends Activity
         implements View.OnClickListener, OnLongClickListener, LauncherModel.Callbacks,
                    View.OnTouchListener, PageSwitchListener, LauncherProviderChangeListener {
     static final String TAG = "Launcher";
+    static final String TAGdrag = "zhao11drag.Launcher";
     static final boolean LOGD = false;
 
     static final boolean PROFILE_STARTUP = false;
@@ -3162,6 +3163,7 @@ public class Launcher extends Activity
     }
 
     public boolean onLongClick(View v) {
+        Log.i(TAGdrag,"onLongClick");
         if (!isDraggingEnabled()) return false;
         if (isWorkspaceLocked()) return false;
         if (mState != State.WORKSPACE) return false;

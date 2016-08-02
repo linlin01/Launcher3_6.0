@@ -89,6 +89,7 @@ public class Workspace extends PagedView
         DragController.DragListener, LauncherTransitionable, ViewGroup.OnHierarchyChangeListener,
         Insettable, UninstallSource, AccessibilityDragSource, Stats.LaunchSourceProvider {
     private static final String TAG = "Launcher.Workspace";
+    private static final String TAGdrag = "zhao11drag.Launcher.Workspace";
 
     private static boolean ENFORCE_DRAG_EVENT_ORDER = false;
 
@@ -382,6 +383,7 @@ public class Workspace extends PagedView
 
     @Override
     public void onDragStart(final DragSource source, Object info, int dragAction) {
+        Log.i(TAGdrag,"onDragStart");
         if (ENFORCE_DRAG_EVENT_ORDER) {
             enfoceDragParity("onDragStart", 0, 0);
         }
@@ -2228,6 +2230,7 @@ public class Workspace extends PagedView
     }
 
     public void startDrag(CellLayout.CellInfo cellInfo) {
+        Log.i(TAGdrag,"startDrag");
         startDrag(cellInfo, false);
     }
 
@@ -2249,6 +2252,7 @@ public class Workspace extends PagedView
     }
 
     public void beginDragShared(View child, DragSource source, boolean accessible) {
+        Log.i(TAGdrag,"beginDragShared");
         beginDragShared(child, new Point(), source, accessible);
     }
 
@@ -2599,6 +2603,7 @@ public class Workspace extends PagedView
     public void prepareAccessibilityDrop() { }
 
     public void onDrop(final DragObject d) {
+        Log.i(TAGdrag,"onDrop:"+d);
         mDragViewVisualCenter = d.getVisualCenter(mDragViewVisualCenter);
         CellLayout dropTargetLayout = mDropToLayout;
 
@@ -2823,6 +2828,7 @@ public class Workspace extends PagedView
 
     @Override
     public void onDragEnter(DragObject d) {
+        Log.i(TAGdrag,"onDragEnter:"+d);
         if (ENFORCE_DRAG_EVENT_ORDER) {
             enfoceDragParity("onDragEnter", 1, 1);
         }
@@ -2881,6 +2887,7 @@ public class Workspace extends PagedView
 
     @Override
     public void onDragExit(DragObject d) {
+        Log.i(TAGdrag,"onDragExit:"+d);
         if (ENFORCE_DRAG_EVENT_ORDER) {
             enfoceDragParity("onDragExit", -1, 0);
         }
@@ -3139,6 +3146,7 @@ public class Workspace extends PagedView
     }
 
     public void onDragOver(DragObject d) {
+        Log.i(TAGdrag,"onDragOver:"+d);
         // Skip drag over events while we are dragging over side pages
         if (mInScrollArea || !transitionStateShouldAllowDrop()) return;
 

@@ -28,6 +28,9 @@ import com.android.launcher3.model.MigrateFromRestoreTask;
 
 import java.io.IOException;
 
+/**
+ * 这个文件是备份与恢复的东东。
+ */
 public class LauncherBackupAgentHelper extends BackupAgentHelper {
 
     private static final String TAG = "LauncherBackupAgentHelper";
