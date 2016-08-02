@@ -3497,7 +3497,14 @@ public class Launcher extends Activity
         // NO-OP
     }
 
+    /**
+     * return null后就可已达到去掉searchbar
+     * 但是界面的那个位置就空起来了，看着巨丑
+     * @return
+     */
     public View getOrCreateQsbBar() {
+        return null;
+        /*
         if (mLauncherCallbacks != null && mLauncherCallbacks.providesSearch()) {
             return mLauncherCallbacks.getQsbBar();
         }
@@ -3552,6 +3559,7 @@ public class Launcher extends Activity
             }
         }
         return mQsb;
+        */
     }
 
     private void reinflateQSBIfNecessary() {
